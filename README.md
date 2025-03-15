@@ -3,7 +3,13 @@
 > A fantastic theme for `Tmux`.  
 
 <p align="center">
-  <img src="./doc/oneiroi.png" alt="Oneiroi Theme" width="70%" />
+  <img src="https://raw.githubusercontent.com/OneiroiTheme/oneiroi-theme/main/assets/oneiroi.png" alt="Oneiroi Theme" width="40%" />
+</p>
+
+<p align="center">
+  <a href="https://github.com/OneiroiTheme/tmux/stargazers"><img src="https://img.shields.io/github/stars/OneiroiTheme/tmux?style=flat-square&labelColor=343a41&color=ffacaa" alt='github stars'/></a>
+  <a href="https://github.com/OneiroiTheme/tmux/issues"><img src="https://img.shields.io/github/issues/OneiroiTheme/tmux?style=flat-square&labelColor=343a41&color=ffdfaa" alt='github issues'/></a>
+  <a href="https://github.com/OneiroiTheme/tmux/contributors"><img src="https://img.shields.io/github/contributors/OneiroiTheme/tmux?style=flat-square&labelColor=343a41&color=aaffdf" alt='github contributors'/></a>
 </p>
 
 ## Themes available
