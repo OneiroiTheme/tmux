@@ -1,9 +1,26 @@
 {
-    "templates": {
-        "type": "mustache",
-        "input": "/.template/tmux_template.conf",
-        "output": "/themes/{{plt.theme}}_{{plt.plt}}_tmux.conf"
-    },
+    "templates": [
+        {
+            "type": "mustache",
+            "input": "/.template/tmux_template.conf",
+            "output": "/themes/{{plt.theme}}_{{plt.plt}}_tmux.conf"
+        },
+        {
+            "type": "mustache",
+            "input": "/.template/template.tmux",
+            "output": "/{{plt.theme}}.tmux",
+            "views": [
+                {
+                    "type": "plts",
+                    "section_name": "plts"
+                },
+                {
+                    "type": "pltmeta",
+                    "section_name": "plt"
+                }
+            ]
+        }
+    ],
     "port": {
         "title": "Tmux",
         "url": "https://github.com/tmux/tmux",

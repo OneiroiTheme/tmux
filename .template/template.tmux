@@ -27,9 +27,9 @@ setw() {
 }
 
 case "$(get @oneiroi_palette "melatonin")" in
-caffeine) palette="caffeine" ;;
-melatonin) palette="melatonin" ;;
-dream) palette="dream" ;;
+{{#plts}}
+{{.}}) palette="{{.}}" ;;
+{{/plts}}
 *) palette="melatonin" ;;
 esac
 
