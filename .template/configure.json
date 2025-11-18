@@ -1,4 +1,21 @@
 {
-    "input": "/.template/tmux_template.conf",
-    "output": "/themes/{{theme}}_{{plt}}_tmux.conf"
+    "templates": {
+        "type": "mustache",
+        "input": "/.template/tmux_template.conf",
+        "output": "/themes/{{plt.theme}}_{{plt.plt}}_tmux.conf"
+    },
+    "port": {
+        "title": "Tmux",
+        "url": "https://github.com/tmux/tmux",
+        "version": "0.0.2"
+    },
+    "author": {
+        "name": "Crystar Z",
+        "email": "crystar.z@outlook.com"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/OneiroiTheme/tmux.git"
+    },
+    "license": "MIT"
 }

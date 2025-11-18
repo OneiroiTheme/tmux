@@ -26,58 +26,55 @@ setw() {
   tmux set-window-option -gq "$option" "$value"
 }
 
-case "$(get @oneiroi_palette "dream")" in
+case "$(get @oneiroi_palette "melatonin")" in
 melatonin) palette="melatonin" ;;
 dream | *) palette="dream" ;;
 esac
 
 tmux source "$current_dir/themes/oneiroi_${palette}_tmux.conf"
 
-fg=$(get @oneiroi_for_s "white")              #fg
+foreground=$(get @oneiroi_on_surface "white") #fg
 case "$(get @oneiroi_background "normal")" in #bg
-transparent) bg="default" ;;
-dark) bg=$(get @oneiroi_bac2 "black") ;;
-normal | *) bg=$(get @oneiroi_bg "black") ;;
+transparent) background="default" ;;
+dark) background=$(get @oneiroi_surface "black") ;;
+normal | *) background=$(get @oneiroi_surface_container "black") ;;
 esac
-bac=$(get @oneiroi_bg "black")
+surface=$(get @oneiroi_surface "black")
 
-prim=$(get @oneiroi_primary "red")
-prims=$(get @oneiroi_primary_s "red")
-seco=$(get @oneiroi_secondary "yellow")
-secos=$(get @oneiroi_secondary_s "yellow")
-tert=$(get @oneiroi_tertiary "green")
-terts=$(get @oneiroi_tertiary_s "green")
+primary=$(get @oneiroi_primary "red")
+secondary=$(get @oneiroi_secondary "red")
+tertiary=$(get @oneiroi_tertiary "yellow")
 
 session=$(get @oneiroi_session "[#S] ")
 widgets=$(get @oneiroi_widgets)
 date_time=$(get @oneiroi_datetime "%Y-%m-%d %H:%M ")
-user=$(get @oneiroi_user "#[fg=$terts]│ #[fg=$prim]#(whoami) ")
+user=$(get @oneiroi_user "#[fg=$tertiary]│ #[fg=$primary]#(whoami) ")
 
-set pane-border-style "fg=$prims"
-set pane-active-border-style "fg=$seco"
+set pane-border-style "fg=$primary"
+set pane-active-border-style "fg=$tertiary"
 
 set status-justify "left"
 set status-left-length "10"
 set status-right-length "50"
 set status-right-attr "none"
 
-set status-style "bg=$bg fg=$fg"
+set status-style "bg=$background fg=$foreground"
 
-set status-left-style "fg=$tert"
-set status-left "#[fg=$tert]${session}"
+set status-left-style "fg=$tertiary"
+set status-left "#[fg=$tertiary]${session}"
 
-set status-right-style "fg=$prims"
+set status-right-style "fg=$secondary"
 set status-right "$widgets$date_time$user"
 
-setw window-status-current-style "fg=$bac bg=$prims"
+setw window-status-current-style "fg=$surface bg=$primary"
 setw window-status-current-format " #I:#W#F "
 
-setw window-status-style "fg=$prims"
-setw window-status-format " #I#[fg=$fg]:#W#[fg=$secos]#F "
+setw window-status-style "fg=$primary"
+setw window-status-format " #I#[fg=$foreground]:#W#[fg=$tertiary]#F "
 
-setw window-status-bell-style "fg=$bac bg=$secos bold"
+setw window-status-bell-style "fg=$surface bg=$tertiary bold"
 
-set message-style "fg=$bac bg=$secos bold"
+set message-style "fg=$surface bg=$tertiary bold"
 
-setw clock-mode-colour "$prims"
-setw mode-style "fg=$bac bg=$prims bold"
+setw clock-mode-colour "$secondary"
+setw mode-style "fg=$surface bg=$secondary bold"
